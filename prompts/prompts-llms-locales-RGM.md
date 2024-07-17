@@ -121,7 +121,7 @@ Ok, adjunto la licencia de llama3 que he podido encontrar en "https://llama.meta
 Gracias por proporcionar la licencia de LLaMA 3. Después de analizar el documento, puedo ofrecerle un resumen de las implicaciones más relevantes para su caso:
 Análisis de la licencia LLaMA 3 para uso empresarial
 
-[Resumen de la licencia](/prompts/prompts-llms-rgm-artifacts/Llama3-license-analysis.md)
+[Resumen de la licencia](/prompts/prompts-llms-rgm-artifacts/llama3-license-analysis.md)
 
 Basándome en este análisis, las principales implicaciones para su caso son:
 
@@ -149,7 +149,7 @@ Ten todos los gastos en cuenta. Hardware, personal necesario, etc y desglosa dic
 Para realizar esta comparación, vamos a desglosar los costes estimados para ambas opciones: Claude 3.5 Sonnet (modelo cerrado) y LLaMA 3 70B (modelo open source). Tengamos en cuenta que estos son cálculos aproximados y los costes reales pueden variar según múltiples factores.
 Comparación de costes: Claude 3.5 Sonnet vs LLaMA 3 70B
 
-[Desglose de costes](/prompts/prompts-llms-rgm-artifacts/llm-cost-copmarison.md)
+[Desglose de costes](/prompts/prompts-llms-rgm-artifacts/llm-cost-comparison.md)
 
 Basándome en este análisis, podemos extraer las siguientes conclusiones:
 
@@ -236,7 +236,7 @@ Después de lo hablado, me parece que la opción más interesante sería utiliza
 Entiendo su perspectiva, y estoy de acuerdo en que los LLMs locales ofrecen ventajas significativas, especialmente en términos de personalización. Para preparar su presentación a los directivos, le sugiero centrarse en las siguientes áreas clave:
 Esquema de presentación: LLMs locales para la empresa
 
-[Áreas clave de enfoque](/prompts/prompts-llms-rgm-artifacts/llm-presentation-outline.md)()
+[Áreas clave de enfoque](/prompts/prompts-llms-rgm-artifacts/llm-presentation-outline.md)
 
 Basándome en este esquema, aquí están las áreas clave en las que debería centrarse para convencer a los directivos:
 
