@@ -683,3 +683,208 @@ In this final module, we will review the key concepts covered throughout the cou
 Congratulations on completing the course on Data Privacy Vaults and their implementation with LLMs! By following the best practices and strategies covered, you can effectively protect sensitive data, ensure regulatory compliance, and maintain trust in your data handling practices.
 
 Thank you for your participation and engagement throughout the course. We hope you found the content valuable and applicable to your work in cybersecurity and data privacy.
+
+## Practical Use Case: Implementing Data Privacy Vaults for LLMs Using AWS and HashiCorp Vault
+
+### Introduction
+
+In this practical use case, we will demonstrate how to implement a Data Privacy Vault for handling sensitive health records in a clinic. We will use AWS as the cloud provider and HashiCorp Vault for managing secrets and encrypting data. This guide will cover setting up the environment, securing data, integrating with an LLM, and ensuring compliance with data privacy regulations.
+
+### Prerequisites
+
+- AWS Account
+- HashiCorp Vault installed (or access to a Vault instance)
+- Basic knowledge of AWS services (S3, IAM, EC2)
+- Understanding of LLMs and their data requirements
+
+### Steps to Implement Data Privacy Vault
+
+#### 1. Setting Up AWS Environment
+
+**Step 1.1: Create an S3 Bucket for Storing Health Records**
+
+1. Log in to the AWS Management Console.
+2. Navigate to S3 and create a new bucket (e.g., `clinic-health-records`).
+3. Enable server-side encryption (SSE-S3 or SSE-KMS) for the bucket.
+
+**Step 1.2: Launch an EC2 Instance for the LLM**
+
+1. Navigate to EC2 and launch a new instance (e.g., Amazon Linux 2).
+2. Configure security groups to allow SSH and any necessary application ports.
+3. Install necessary dependencies for running the LLM and HashiCorp Vault.
+
+**Step 1.3: Set Up IAM Roles and Policies**
+
+1. Create an IAM role for the EC2 instance with the following policies:
+   - `AmazonS3FullAccess` (or more restrictive policies for specific bucket access)
+   - `AmazonEC2FullAccess`
+
+2. Attach the IAM role to the EC2 instance.
+
+#### 2. Setting Up HashiCorp Vault
+
+**Step 2.1: Install and Configure Vault on EC2**
+
+1. SSH into the EC2 instance.
+2. Install Vault by following the official [installation guide](https://www.vaultproject.io/docs/install).
+
+```sh
+# Example installation commands
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install vault
+```
+
+3. Configure Vault by creating a configuration file (`vault-config.hcl`).
+
+```hcl
+storage "file" {
+  path = "/opt/vault/data"
+}
+
+listener "tcp" {
+  address     = "0.0.0.0:8200"
+  tls_disable = 1
+}
+
+api_addr = "http://<EC2_PUBLIC_IP>:8200"
+```
+
+4. Start Vault in development mode for initial setup.
+
+```sh
+vault server -config=vault-config.hcl
+```
+
+5. Initialize and unseal Vault.
+
+```sh
+vault operator init
+vault operator unseal
+```
+
+**Step 2.2: Configure Vault Policies and Secrets**
+
+1. Create a policy for accessing secrets.
+
+```hcl
+# Create a file named health-records-policy.hcl
+path "secret/data/health/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+```
+
+2. Apply the policy.
+
+```sh
+vault policy write health-records health-records-policy.hcl
+```
+
+3. Enable the KV secrets engine.
+
+```sh
+vault secrets enable -path=secret kv-v2
+```
+
+4. Store a sample health record secret.
+
+```sh
+vault kv put secret/health/record123 name="John Doe" age="29" condition="Hypertension"
+```
+
+#### 3. Integrating LLM with Data Privacy Vault
+
+**Step 3.1: Securely Accessing Secrets from Vault**
+
+1. Install the Vault CLI and SDK in your LLM application environment.
+
+```sh
+# Example for Python
+pip install hvac
+```
+
+2. Use the Vault SDK to retrieve secrets within your LLM application.
+
+```python
+import hvac
+
+client = hvac.Client(url='http://<EC2_PUBLIC_IP>:8200', token='<VAULT_TOKEN>')
+
+secret = client.secrets.kv.v2.read_secret_version(path='health/record123')
+print(secret['data']['data'])
+```
+
+**Step 3.2: Encrypting and Decrypting Data**
+
+1. Use Vault's transit secrets engine for encryption and decryption.
+
+```sh
+vault secrets enable transit
+vault write -f transit/keys/health-data
+```
+
+2. Encrypt health record data before storing it in S3.
+
+```python
+# Encrypt data
+plaintext = "Sensitive Health Record Data"
+encrypted = client.secrets.transit.encrypt_data(name='health-data', plaintext=plaintext)
+```
+
+3. Decrypt data when needed for LLM processing.
+
+```python
+# Decrypt data
+ciphertext = encrypted['data']['ciphertext']
+decrypted = client.secrets.transit.decrypt_data(name='health-data', ciphertext=ciphertext)
+```
+
+**Step 3.3: Storing Encrypted Data in S3**
+
+1. Use the AWS SDK to upload encrypted data to S3.
+
+```python
+import boto3
+
+s3 = boto3.client('s3')
+s3.put_object(Bucket='clinic-health-records', Key='record123.enc', Body=ciphertext)
+```
+
+2. Retrieve and decrypt data when required by the LLM.
+
+```python
+# Retrieve encrypted data from S3
+obj = s3.get_object(Bucket='clinic-health-records', Key='record123.enc')
+ciphertext = obj['Body'].read()
+
+# Decrypt data using Vault
+decrypted = client.secrets.transit.decrypt_data(name='health-data', ciphertext=ciphertext)
+```
+
+#### 4. Ensuring Compliance and Security
+
+**Step 4.1: Regular Audits and Monitoring**
+
+1. Enable CloudTrail in AWS to log all actions taken on the S3 bucket.
+2. Set up monitoring and alerting for unauthorized access attempts.
+
+**Step 4.2: Policy Reviews and Updates**
+
+1. Regularly review and update Vault policies to ensure they meet the latest security and compliance requirements.
+2. Conduct internal and external audits to verify compliance with regulations such as HIPAA.
+
+**Step 4.3: User Training and Incident Response**
+
+1. Train staff on the importance of data privacy and how to handle sensitive health records securely.
+2. Develop and regularly test an incident response plan to address potential data breaches promptly.
+
+### Conclusion
+
+By following these steps, you can implement a Data Privacy Vault using AWS and HashiCorp Vault to securely manage and protect sensitive health records for a clinic. This approach ensures data is encrypted, access is controlled, and compliance with data privacy regulations is maintained, providing a robust solution for safeguarding patient information.
+
+### Additional Resources
+
+- [HashiCorp Vault Documentation](https://www.vaultproject.io/docs)
+- [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+- [HIPAA Compliance on AWS](https://aws.amazon.com/compliance/hipaa-compliance/)
+- [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
