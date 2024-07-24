@@ -95,6 +95,17 @@
    - Próximos Pasos
    - Recursos Adicionales
    - Conclusión
+     
+8. **Caso de Uso Práctico: Implementación de Depósitos de Privacidad de Datos para LLMs Usando AWS y HashiCorp Vault**
+   - Introducción
+   - Prerequisitos
+   - Pasos para Implementar el Depósito de Privacidad de Datos
+     - Configuración del Entorno de AWS
+     - Configuración de HashiCorp Vault
+     - Integración del LLM con el Depósito de Privacidad de Datos
+     - Asegurando el Cumplimiento y la Seguridad
+   - Conclusión
+   - Recursos Adicionales
 
 ## Módulo 1: Introducción a los Depósitos de Privacidad de Datos
 
@@ -779,3 +790,208 @@ Los **Depósitos de Privacidad de Datos** son sistemas seguros diseñados para p
 ¡Felicitaciones por completar el curso sobre Depósitos de Privacidad de Datos y su implementación con LLMs! Al seguir las mejores prácticas y estrategias cubiertas, puede proteger efectivamente datos sensibles, asegurar el cumplimiento normativo y mantener la confianza en sus prácticas de manejo de datos.
 
 Gracias por su participación y compromiso a lo largo del curso. Esperamos que haya encontrado el contenido valioso y aplicable a su trabajo en ciberseguridad y privacidad de datos.
+
+## Caso de Uso Práctico: Implementación de Depósitos de Privacidad de Datos para LLMs Usando AWS y HashiCorp Vault
+
+### Introducción
+
+En este caso de uso práctico, demostraremos cómo implementar un Depósito de Privacidad de Datos para manejar registros de salud sensibles en una clínica. Utilizaremos AWS como proveedor de la nube y HashiCorp Vault para gestionar secretos y encriptar datos. Esta guía cubrirá la configuración del entorno, la seguridad de los datos, la integración con un LLM y el aseguramiento del cumplimiento con las regulaciones de privacidad de datos.
+
+### Prerrequisitos
+
+- Cuenta de AWS
+- HashiCorp Vault instalado (o acceso a una instancia de Vault)
+- Conocimientos básicos de los servicios de AWS (S3, IAM, EC2)
+- Comprensión de LLMs y sus requisitos de datos
+
+### Pasos para Implementar el Depósito de Privacidad de Datos
+
+#### 1. Configuración del Entorno de AWS
+
+**Paso 1.1: Crear un Bucket de S3 para Almacenar Registros de Salud**
+
+1. Iniciar sesión en la Consola de Administración de AWS.
+2. Navegar a S3 y crear un nuevo bucket (por ejemplo, `clinic-health-records`).
+3. Habilitar la encriptación del lado del servidor (SSE-S3 o SSE-KMS) para el bucket.
+
+**Paso 1.2: Lanzar una Instancia EC2 para el LLM**
+
+1. Navegar a EC2 y lanzar una nueva instancia (por ejemplo, Amazon Linux 2).
+2. Configurar grupos de seguridad para permitir SSH y cualquier puerto de aplicación necesario.
+3. Instalar las dependencias necesarias para ejecutar el LLM y HashiCorp Vault.
+
+**Paso 1.3: Configurar Roles y Políticas de IAM**
+
+1. Crear un rol de IAM para la instancia EC2 con las siguientes políticas:
+   - `AmazonS3FullAccess` (o políticas más restrictivas para acceso específico al bucket)
+   - `AmazonEC2FullAccess`
+
+2. Adjuntar el rol de IAM a la instancia EC2.
+
+#### 2. Configuración de HashiCorp Vault
+
+**Paso 2.1: Instalar y Configurar Vault en EC2**
+
+1. SSH en la instancia EC2.
+2. Instalar Vault siguiendo la [guía de instalación oficial](https://www.vaultproject.io/docs/install).
+
+```sh
+# Comandos de instalación de ejemplo
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install vault
+```
+
+3. Configurar Vault creando un archivo de configuración (`vault-config.hcl`).
+
+```hcl
+storage "file" {
+  path = "/opt/vault/data"
+}
+
+listener "tcp" {
+  address     = "0.0.0.0:8200"
+  tls_disable = 1
+}
+
+api_addr = "http://<EC2_PUBLIC_IP>:8200"
+```
+
+4. Iniciar Vault en modo de desarrollo para la configuración inicial.
+
+```sh
+vault server -config=vault-config.hcl
+```
+
+5. Inicializar y abrir Vault.
+
+```sh
+vault operator init
+vault operator unseal
+```
+
+**Paso 2.2: Configurar Políticas y Secretos de Vault**
+
+1. Crear una política para acceder a los secretos.
+
+```hcl
+# Crear un archivo llamado health-records-policy.hcl
+path "secret/data/health/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+```
+
+2. Aplicar la política.
+
+```sh
+vault policy write health-records health-records-policy.hcl
+```
+
+3. Habilitar el motor de secretos KV.
+
+```sh
+vault secrets enable -path=secret kv-v2
+```
+
+4. Almacenar un secreto de registro de salud de ejemplo.
+
+```sh
+vault kv put secret/health/record123 name="John Doe" age="29" condition="Hypertension"
+```
+
+#### 3. Integración del LLM con el Depósito de Privacidad de Datos
+
+**Paso 3.1: Acceder de Forma Segura a los Secretos desde Vault**
+
+1. Instalar el CLI y SDK de Vault en el entorno de su aplicación LLM.
+
+```sh
+# Ejemplo para Python
+pip install hvac
+```
+
+2. Usar el SDK de Vault para recuperar secretos dentro de su aplicación LLM.
+
+```python
+import hvac
+
+client = hvac.Client(url='http://<EC2_PUBLIC_IP>:8200', token='<VAULT_TOKEN>')
+
+secret = client.secrets.kv.v2.read_secret_version(path='health/record123')
+print(secret['data']['data'])
+```
+
+**Paso 3.2: Encriptación y Desencriptación de Datos**
+
+1. Usar el motor de secretos de tránsito de Vault para la encriptación y desencriptación.
+
+```sh
+vault secrets enable transit
+vault write -f transit/keys/health-data
+```
+
+2. Encriptar datos de registros de salud antes de almacenarlos en S3.
+
+```python
+# Encriptar datos
+plaintext = "Sensitive Health Record Data"
+encrypted = client.secrets.transit.encrypt_data(name='health-data', plaintext=plaintext)
+```
+
+3. Desencriptar datos cuando se necesiten para el procesamiento del LLM.
+
+```python
+# Desencriptar datos
+ciphertext = encrypted['data']['ciphertext']
+decrypted = client.secrets.transit.decrypt_data(name='health-data', ciphertext=ciphertext)
+```
+
+**Paso 3.3: Almacenar Datos Encriptados en S3**
+
+1. Usar el SDK de AWS para subir datos encriptados a S3.
+
+```python
+import boto3
+
+s3 = boto3.client('s3')
+s3.put_object(Bucket='clinic-health-records', Key='record123.enc', Body=ciphertext)
+```
+
+2. Recuperar y desencriptar datos cuando sean requeridos por el LLM.
+
+```python
+# Recuperar datos encriptados de S3
+obj = s3.get_object(Bucket='clinic-health-records', Key='record123.enc')
+ciphertext = obj['Body'].read()
+
+# Desencriptar datos usando Vault
+decrypted = client.secrets.transit.decrypt_data(name='health-data', ciphertext=ciphertext)
+```
+
+#### 4. Asegurando el Cumplimiento y la Seguridad
+
+**Paso 4.1: Auditorías Regulares y Monitoreo**
+
+1. Habilitar CloudTrail en AWS para registrar todas las acciones realizadas en el bucket de S3.
+2. Configurar monitoreo y alertas para intentos de acceso no autorizados.
+
+**Paso 4.2: Revisiones y Actualizaciones de Políticas**
+
+1. Revisar y actualizar regularmente las políticas de Vault para asegurar que cumplan con los requisitos de seguridad y cumplimiento más recientes.
+2. Realizar auditorías internas y externas para verificar el cumplimiento con regulaciones como HIPAA.
+
+**Paso 4.3: Capacitación de Usuarios y Respuesta a Incidentes**
+
+1. Capacitar al personal sobre la importancia de la privacidad de los datos y cómo manejar de manera segura los registros de salud sensibles.
+2. Desarrollar y probar regularmente un plan de respuesta a incidentes para abordar posibles brechas de datos de manera rápida.
+
+### Conclusión
+
+Siguiendo estos pasos, puede implementar un Depósito de Privacidad de Datos usando AWS y HashiCorp Vault para gestionar y proteger de manera segura los registros de salud sensibles en una clínica. Este enfoque asegura que los datos estén encriptados, el acceso esté controlado y se mantenga el cumplimiento con las regulaciones de privacidad de datos, proporcionando una solución robusta para la protección de la información de los pacientes.
+
+### Recursos Adicionales
+
+- [Documentación de HashiCorp Vault](https://www.vaultproject.io/docs)
+- [Prácticas de Seguridad de AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+- [Cumplimiento de HIPAA en AWS](https://aws.amazon.com/compliance/hipaa-compliance/)
+- [Mejores Prácticas de IAM en AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
