@@ -1,7 +1,7 @@
 ### Jesus Abreu
 ```markdown
 I want you to act as the best cibersecurity engineer and the best teacher to describe what the "Data privacy vaults" is in a LLM context.
-I need you to create the result of this investation in a Course format, add references and links to important and relevant quotes, and other documents.
+I need you to create the result of this investigation in a Course format, add references and links to important and relevant quotes, and other documents.
 You need to be creative elaborating examples, but precise with the definitions and the explanations.
 ```
 
