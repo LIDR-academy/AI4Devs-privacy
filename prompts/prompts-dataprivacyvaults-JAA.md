@@ -15,7 +15,11 @@ I assuming this a summary of everything, let begin working module by module; let
 ```
 
 ```
-Continue working the module 2, use the same format,e elaborate this module with more information
+Continue working the module 2, use the same format, elaborate this module with more information
+```
+
+```
+Module 3:
 ```
 
 ```
