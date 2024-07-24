@@ -1,2 +1,40 @@
-### Alvaro Moya
-¿Qué es la de-identificación en el contexto de seguridad, y en particular aplicado al uso de LLMs? Resumelo en un solo párrafo.
+### Jesus Abreu
+```markdown
+I want you to act as the best cibersecurity engineer and the best teacher to describe what the "Data privacy vaults" is in a LLM context.
+I need you to create the result of this investation in a Course format, add references and links to important and relevant quotes, and other documents.
+You need to be creative elaborating examples, but precise with the definitions and the explanations.
+```
+
+```
+I need you to do some improvements: use markdown format, create a better index of context with links to the topic.
+I don't want you to be focussing on what the LLM is, you need to skip this but and add references for it, I need you to elaborate on the Vault topics.
+```
+
+```
+I assuming this a summary of everything, let begin working module by module; let start with the Module 1. Please elaborate this module with more information.
+```
+
+```
+Continue working the module 2, use the same format,e elaborate this module with more information
+```
+
+```
+Module 4:
+```
+
+```
+Module 5:
+```
+
+```
+Module 6:
+```
+
+```
+Module 7:
+```
+
+### Traductor
+```
+https://chatgpt.com/g/g-m6EDiXVmH-en-es-en-traductor
+```
