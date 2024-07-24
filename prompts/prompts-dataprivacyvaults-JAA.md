@@ -33,6 +33,11 @@ Module 6:
 ```
 Module 7:
 ```
+```
+Now, act as the best cibersecurity developer and evangelist to implementing a data privacy vaults for LLMs.
+I want you to focus on the topics related to the "Implementation" of this investigation,  to create a practical use case for this course.
+I want you to use AWS as a cloud provider, use Hashicorp Vault as tools. Create an example to implement saving health record data for a clinic
+```
 
 ### Traductor
 ```
