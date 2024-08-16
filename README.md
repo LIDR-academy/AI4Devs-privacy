@@ -53,6 +53,7 @@ Este fichero será colaborativo.
 ## Indice
 
 [De-identificación](de-identificacion/README.md)
+[Generación de datos sintéticos](generacion_de_datos_sinteticos/README.md)
 
 
 
