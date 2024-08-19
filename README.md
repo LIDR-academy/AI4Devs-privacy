@@ -52,7 +52,8 @@ Este fichero será colaborativo.
 
 ## Indice
 
-[De-identificación](de-identificacion/README.md)
+[De-identificación](de-identificacion/README.md)  
+[LLMs Locales - DFO](llms-locales-DFO/README.md)  
 
 
 
