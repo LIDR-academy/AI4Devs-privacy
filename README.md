@@ -53,6 +53,7 @@ Este fichero será colaborativo.
 ## Indice
 
 [De-identificación](de-identificacion/README.md)
-
+[Filtros de Respuestas](filtros-de-respuestas/README.md)
+[Red-Teaming y Simulación de Ataques](red-teaming/README.md)
 
 
