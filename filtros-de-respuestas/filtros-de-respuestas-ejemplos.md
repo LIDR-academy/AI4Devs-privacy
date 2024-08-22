@@ -13,6 +13,3 @@ Los **Filtros de Respuestas** ayudan a controlar las salidas generadas por un LL
 ### 3. Bloqueo de preguntas sobre propiedad intelectual
    - **Descripción**: Los filtros pueden programarse para evitar que el modelo responda a preguntas que involucren secretos comerciales o contenido protegido por derechos de autor.
    - **Ejemplo**: En **Google Gemini**, si un usuario intenta obtener detalles sobre tecnologías propietarias, el sistema está diseñado para bloquear automáticamente cualquier intento de revelar información protegida.
-
-**Imagen de ejemplo**:
-![Ejemplo de Filtros de Respuestas](https://github.com/LIDR-academy/AI4Devs-privacy/blob/main/filtros-de-respuestas/res/01_response_filtering.jpg?raw=true)
