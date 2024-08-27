@@ -143,3 +143,35 @@ Aquí te presento un gráfico para visualizar la importancia relativa de cada un
 
    • Resiliencia contra Ataques: Considera las medidas de seguridad que protegen al LLM local contra ciberataques, incluyendo técnicas de envenenamiento de datos y otros vectores de ataque.
    • Protección de la Propiedad Intelectual: Asegúrate de que el modelo local esté protegido contra el acceso no autorizado, protegiendo la propiedad intelectual de la empresa.
+
+## Análisis del Uso de Modelos LLM en IBM Watson
+
+IBM Watson emplea modelos de lenguaje grandes (LLMs) en diversas aplicaciones para mejorar procesos empresariales, atención al cliente, análisis de datos e investigación. A continuación, se presenta un resumen de su uso:
+
+1. Aplicaciones Clave
+
+   - Automatización de Procesos Empresariales:
+     • Uso: Revisión de documentos, extracción de información, y gestión de casos.
+     • Ejemplo: Automatización en la revisión de contratos legales.
+   - Atención al Cliente y Chatbots:
+     • Uso: Mejora de chatbots y asistentes virtuales para consultas en lenguaje natural.
+     • Ejemplo: Implementación en servicios de telecomunicaciones para soporte automatizado.
+   - Análisis de Datos y Predicciones:
+     • Uso: Análisis de sentimientos, extracción de temas, y generación de informes.
+     • Ejemplo: Evaluación de comentarios de clientes y tendencias de mercado.
+   - Investigación y Desarrollo:
+     • Uso: Generación de texto, asistencia en documentación técnica.
+     • Ejemplo: Resúmenes automáticos de literatura científica.
+
+2. Beneficios
+
+   • Eficiencia y Reducción de Costos: Mejora la eficiencia operativa y reduce costos al automatizar tareas repetitivas.
+   • Mejora en la Experiencia del Cliente: Proporciona respuestas rápidas y precisas a través de chatbots.
+   • Análisis y Toma de Decisiones: Facilita decisiones informadas mediante análisis de datos avanzados.
+   • Innovación Continua: Permite el desarrollo de nuevas soluciones y mejoras tecnológicas.
+
+3. Desafíos
+
+   • Privacidad y Seguridad: Necesidad de proteger adecuadamente los datos manejados.
+   • Personalización: Requiere ajustes para adaptarse a diferentes industrias y usos específicos.
+   • Integración Compleja: Puede ser complejo integrar LLMs con sistemas existentes.
