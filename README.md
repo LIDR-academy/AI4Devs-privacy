@@ -54,6 +54,9 @@ Este fichero será colaborativo.
 
 [De-identificación](de-identificacion/README.md)
 [Data privacy vaults](data-privacy-vaults/README.md)
+- [Auditorías](auditorias/README.md)
+  - [Ejemplo de auditoria](auditorias/ejemplo_auditoria_Anthropic.md)
+
 
 
 
