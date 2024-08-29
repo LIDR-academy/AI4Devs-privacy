@@ -52,12 +52,9 @@ Este fichero será colaborativo.
 
 ## Indice
 
-[Data privacy vaults](data-privacy-vaults/README.md)
+
+- [Data privacy vaults](data-privacy-vaults/README.md)
 - [Auditorías](auditorias/README.md)
   - [Ejemplo de auditoria](auditorias/ejemplo_auditoria_Anthropic.md)
 - [De-identificación](de-identificacion/README.md)
-
-
-
-
-
+- [Generación de datos sintéticos](generacion_de_datos_sinteticos/README.md)
