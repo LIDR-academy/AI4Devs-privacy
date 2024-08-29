@@ -53,6 +53,7 @@ Este fichero será colaborativo.
 ## Indice
 
 [De-identificación](de-identificacion/README.md)
+[Data privacy vaults](data-privacy-vaults/README.md)
 
 
 
