@@ -76,4 +76,7 @@ Aunque KMS gestiona las claves de cifrado, puedes usar Secrets Manager para alma
 ![Ejemplo de uso en AWS](../data-privacy-vaults/res/aws-example.png)
 
 
+## Indice
+[vault-jaa](vault-jaa.md)
+
 
