@@ -58,3 +58,5 @@ Este fichero será colaborativo.
 - [De-identificación](de-identificacion/README.md)
 - [Generación de datos sintéticos](generacion_de_datos_sinteticos/README.md)
 - [LLMs Locales - DFO](llms-locales-DFO/README.md)  
+- [Filtros de Respuestas](filtros-de-respuestas/README.md)  
+- [Red-Teaming y Simulación de Ataques](red-teaming/README.md)  
