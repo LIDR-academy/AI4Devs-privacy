@@ -60,3 +60,4 @@ Este fichero será colaborativo.
 - [LLMs Locales - DFO](llms-locales-DFO/README.md)  
 - [Filtros de Respuestas](filtros-de-respuestas/README.md)  
 - [Red-Teaming y Simulación de Ataques](red-teaming/README.md)  
+- [jailbreaking](jailbreaking/README.md)  
