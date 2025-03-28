@@ -17,7 +17,7 @@ Puedes profundizar en los casos de uso en el contexto de LLMs, traer ejemplos te
 
 Utiliza el asistente que prefieras para aprender sobre esta temática: ChatGPT, Microsoft Copilot, Gemini, Claude...
 
-Eso sí, tendrás que **documentar lo aprendido en español en un formato tipo curso**, en este repositorio Github. 
+Eso sí, tendrás que **documentar lo aprendido en español en un formato tipo curso**, en este repositorio Github.
 
 En este caso el repositorio será colaborativo, iremos aceptando las pull requests para generar una base común. Una vez decidas la temática, *comienza por descargar la última versión del repositorio usando git pull y construye a partir de lo que tus compañer@s ya hayan dejado*. Si no sabes como mantenerte actualizado antes de publicar tu contenido y encontrarte con conflictos, pregunta en el grupo de Whatsapp o revisa documentación sobre git.
 
@@ -57,10 +57,11 @@ Este fichero será colaborativo.
   - [Ejemplo de auditoria](auditorias/ejemplo_auditoria_Anthropic.md)
 - [De-identificación](de-identificacion/README.md)
 - [Generación de datos sintéticos](generacion_de_datos_sinteticos/README.md)
-- [LLMs Locales - DFO](llms-locales-DFO/README.md)  
-- [Filtros de Respuestas](filtros-de-respuestas/README.md)  
-- [Red-Teaming y Simulación de Ataques](red-teaming/README.md)  
-- [Jailbreaking](jailbreaking/README.md)  
+- [LLMs Locales - DFO](llms-locales-DFO/README.md)
+- [Filtros de Respuestas](filtros-de-respuestas/README.md)
+- [Filtros de Respuestas DCA](filtros-de-respuestas/filtros-de-respuestas-curso-DCA.md)
+- [Red-Teaming y Simulación de Ataques](red-teaming/README.md)
+- [Jailbreaking](jailbreaking/README.md)
 - [Derechos de Autor](AI4Devs-Copyrights-&-Derechos-de-autor-MADV/README.md)
 - [Generación de Datos Sintéticos](generacion_de_datos_sinteticos/README.md)
 - [LLMs Locales](LLMs-locales/res/README.md)
