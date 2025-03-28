@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant Dispositivo1 as Dispositivo 1
+    participant Dispositivo2 as Dispositivo 2
+    participant Dispositivo3 as Dispositivo 3
+    participant Servidor as Servidor Central
+
+    Servidor->>Dispositivo1: Modelo Inicial
+    Servidor->>Dispositivo2: Modelo Inicial
+    Servidor->>Dispositivo3: Modelo Inicial
+
+    Dispositivo1->>Servidor: Actualizaciones de Pesos
+    Dispositivo2->>Servidor: Actualizaciones de Pesos
+    Dispositivo3->>Servidor: Actualizaciones de Pesos
+
+    Servidor->>Servidor: Agrega Actualizaciones
+    Servidor->>Dispositivo1: Modelo Actualizado
+    Servidor->>Dispositivo2: Modelo Actualizado
+    Servidor->>Dispositivo3: Modelo Actualizado

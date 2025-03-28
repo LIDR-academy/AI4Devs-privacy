@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f4f7f6"/>
+  
+  <text x="700" y="70" text-anchor="middle" font-size="36" font-weight="bold" fill="#2c3e50">
+    Differential Privacy: Modelo Matemático Formal
+  </text>
+  
+  <!-- Definición Matemática -->
+  <g transform="translate(200, 250)">
+    <rect width="1000" height="300" rx="15" fill="#e8f4f3" stroke="#2ecc71" stroke-width="3"/>
+    
+    <text x="500" y="50" text-anchor="middle" font-size="24" fill="#2c3e50">
+      Definición Formal: ε-Differential Privacy
+    </text>
+    
+    <text x="500" y="100" text-anchor="middle" font-size="22" fill="#2980b9">
+      Pr[M(D1) ∈ S] ≤ exp(ε) * Pr[M(D2) ∈ S]
+    </text>
+    
+    <text x="500" y="150" text-anchor="middle" font-size="18" fill="#7f8c8d">
+      Donde:
+    </text>
+    <text x="500" y="180" text-anchor="middle" font-size="16" fill="#2c3e50">
+      M: Mecanismo de Perturbación
+    </text>
+    <text x="500" y="210" text-anchor="middle" font-size="16" fill="#2c3e50">
+      D1, D2: Conjuntos de Datos Adyacentes
+    </text>
+    <text x="500" y="240" text-anchor="middle" font-size="16" fill="#2c3e50">
+      S: Conjunto de Resultados Posibles
+    </text>
+  </g>
+  
+  <!-- Mecanismos -->
+  <g transform="translate(200, 600)">
+    <rect width="1000" height="250" rx="15" fill="#e9f1fc" stroke="#3498db" stroke-width="3"/>
+    
+    <text x="500" y="50" text-anchor="middle" font-size="24" fill="#2c3e50">
+      Mecanismos de Perturbación
+    </text>
+    
+    <g transform="translate(200, 100)">
+      <rect width="200" height="120" rx="10" fill="#3498db" fill-opacity="0.7"/>
+      <text x="100" y="40" text-anchor="middle" fill="white" font-size="18">
+        Laplace
+      </text>
+      <text x="100" y="70" text-anchor="middle" fill="white" font-size="14">
+        Noise = Lap(Δf / ε)
+      </text>
+    </g>
+    
+    <g transform="translate(500, 100)">
+      <rect width="200" height="120" rx="10" fill="#3498db" fill-opacity="0.7"/>
+      <text x="100" y="40" text-anchor="middle" fill="white" font-size="18">
+        Gaussiano
+      </text>
+      <text x="100" y="70" text-anchor="middle" fill="white" font-size="14">
+        Noise ~ N(0, σ²)
+      </text>
+    </g>
+    
+    <g transform="translate(800, 100)">
+      <rect width="200" height="120" rx="10" fill="#3498db" fill-opacity="0.7"/>
+      <text x="100" y="40" text-anchor="middle" fill="white" font-size="18">
+        Exponencial
+      </text>
+      <text x="100" y="70" text-anchor="middle" fill="white" font-size="14">
+        Sensitivity Based
+      </text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+#Loreto Pardo de Santayana - Privacidad en el entrenamiento y uso de modelos IA
+
+ChatGPT-4o
+
+Prompt:
+
+````
+Eres un experto en el desarrollo de software con IA, además de en ciberseguridad y protección de datos. Dime en qué conceptos debo profundizar para desarrollar sofwtare con IA y mantener la privacidad de los datos que se manejan en mis proyectos
+````
+
+Prompt: 
+
+````
+Quiero Profundizar en técnicas como el Federated Learning y Differential Privacy para entrenar modelos sin comprometer datos individuales. Háblame de forma esquematica, pero completa, de las principales ideas que debo saber para mis desarrollos. 
+````
+
+Prompt:
+
+```
+De FL explicama de forma sencilla qué significa que • Solo se comparten las actualizaciones (por ejemplo, gradientes o pesos) del modelo.
+````
+
+Prompt:
+
+````
+Explicame de forma breve y sencilla que es FedAvg
+````
+
+Prompt:
+
+````
+Dime donde encontrar información acerca de Laplace Mechanism (ruido para DP) para explicar a mis alumnos
+```
+
+Claude 3.5 Haiku
+
+Prompt :
+
+```
+Eres un experto en seguridad y privacidad de datos en el uso de la IA. Además eres un experto docente. Quiero que generes diagramas y recursos gráficos para explicar estos conceptos: Federated Learning (FL) y Differential Privacy (DP) a alumnos que están empezando a usar la IA para sus desarrollos de software
+````
+
+Prompt:
+
+````
+Eres capaz de hacer una o más infografías, deben ser sencillas y limpias, para explicar estos dos conceptos?
+````
+
+Prompt:
+
+````
+Te voy a pedir dos cosas más. Que la infografía de Differential privacy la hagas de nuevo, y que sea algo más profesional.
+````
+
+Prompt:
+
+````
+Ahora vuelve a crear 3 infografias: 1 para FL, otra para DP y otra que combine ambas. Esta vez para un público experto en sistemas y en IA
+```

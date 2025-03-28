@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <!-- Fondo profesional -->
+  <rect width="1000" height="600" fill="#ffffff"/>
+  
+  <!-- Título principal -->
+  <text x="500" y="60" text-anchor="middle" font-size="32" font-weight="bold" fill="#1a5f7a">
+    Differential Privacy: Protección Inteligente de Datos
+  </text>
+  
+  <!-- Iconos de proceso -->
+  <g transform="translate(150, 150)">
+    <!-- Datos originales -->
+    <rect width="250" height="250" rx="10" fill="#e9f4f8" stroke="#1a5f7a" stroke-width="2"/>
+    <text x="125" y="50" text-anchor="middle" font-size="20" fill="#1a5f7a">Datos Originales</text>
+    <path d="M50,100 L200,100" stroke="#1a5f7a" stroke-width="2"/>
+    <text x="125" y="130" text-anchor="middle" font-size="16" fill="#2c3e50">
+      Información individual
+    </text>
+    <text x="125" y="160" text-anchor="middle" font-size="16" fill="#2c3e50">
+      potencialmente sensible
+    </text>
+  </g>
+  
+  <!-- Ícono de ruido -->
+  <g transform="translate(475, 200)">
+    <circle r="60" fill="#4dabf7" stroke="#1a5f7a" stroke-width="2"/>
+    <text x="0" y="0" text-anchor="middle" font-size="18" fill="white" transform="translate(0, 10)">
+      Ruido
+    </text>
+    <text x="0" y="0" text-anchor="middle" font-size="14" fill="white" transform="translate(0, 35)">
+      Aleatorio
+    </text>
+  </g>
+  
+  <!-- Datos agregados -->
+  <g transform="translate(600, 150)">
+    <rect width="250" height="250" rx="10" fill="#e6f3e6" stroke="#2ecc71" stroke-width="2"/>
+    <text x="125" y="50" text-anchor="middle" font-size="20" fill="#2ecc71">Datos Agregados</text>
+    <path d="M50,100 L200,100" stroke="#2ecc71" stroke-width="2"/>
+    <text x="125" y="130" text-anchor="middle" font-size="16" fill="#2c3e50">
+      Información estadística
+    </text>
+    <text x="125" y="160" text-anchor="middle" font-size="16" fill="#2c3e50">
+      Protegida
+    </text>
+  </g>
+  
+  <!-- Flechas de flujo -->
+  <path d="M400,280 L475,280" fill="none" stroke="#1a5f7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M535,280 L600,280" fill="none" stroke="#2ecc71" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Explicación -->
+  <text x="500" y="500" text-anchor="middle" font-size="20" fill="#1a5f7a">
+    Añadir ruido controlado protege identidades manteniendo insights estadísticos
+  </text>
+  
+  <!-- Definición de marcador de flecha -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a5f7a"/>
+    </marker>
+  </defs>
+  
+  <!-- Parámetro epsilon como detalle técnico -->
+  <text x="500" y="550" text-anchor="middle" font-size="16" fill="#2c3e50">
+    Controlado por Epsilon (ε): Balance entre privacidad y utilidad
+  </text>
+</svg>
