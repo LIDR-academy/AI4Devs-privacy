@@ -1,0 +1,19 @@
+flowchart TB
+    A[LLM Local] -->|Ayuda a cumplir| B{Regulaciones}
+    
+    B --> C[GDPR]
+    B --> D[HIPAA]
+    B --> E[CCPA]
+    B --> F[PCI-DSS]
+    
+    C --> G[Datos en Europa]
+    D --> H[Datos médicos]
+    E --> I[Datos California]
+    F --> J[Datos pagos]
+    
+    style A fill:#ccffcc
+    style B fill:#ccffff
+    style C fill:#ffffcc
+    style D fill:#ffffcc
+    style E fill:#ffffcc
+    style F fill:#ffffcc

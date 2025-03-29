@@ -1,0 +1,18 @@
+flowchart LR
+    A[LLM en la Nube] -->|Datos viajan fuera| B[(Internet)]
+    C[LLM Local] -->|Datos se quedan| D[(Red interna)]
+    
+    style A fill:#ffcccc
+    style B fill:#ffcccc
+    style C fill:#ccffcc
+    style D fill:#ccffcc
+    
+    subgraph "Empresa"
+        D
+        C
+    end
+    
+    subgraph "Fuera de la Empresa"
+        B
+        A
+    end

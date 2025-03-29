@@ -1,0 +1,14 @@
+flowchart TB
+    A[Empresa] -->|Envía pregunta con datos sensibles| B[LLM en la Nube]
+    B --> C{Riesgos}
+    C -->|1| D[Proveedor ve datos]
+    C -->|2| E[Datos almacenados]
+    C -->|3| F[Uso para entrenar]
+    C -->|4| G[Acceso por terceros]
+    
+    style B fill:#ffcccc
+    style C fill:#ffcccc
+    style D fill:#ff9999
+    style E fill:#ff9999
+    style F fill:#ff9999
+    style G fill:#ff9999

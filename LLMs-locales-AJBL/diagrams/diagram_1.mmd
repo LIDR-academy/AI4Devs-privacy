@@ -1,0 +1,11 @@
+flowchart TB
+    A[Empresa] -->|Envía datos| B{¿Dónde procesar?}
+    B -->|Opción 1| C[Servicio en la Nube]
+    B -->|Opción 2| D[LLM Local]
+    C -->|Riesgo| E[Datos expuestos fuera]
+    D -->|Seguridad| F[Datos permanecen dentro]
+    
+    style C fill:#ffcccc
+    style D fill:#ccffcc
+    style E fill:#ff9999
+    style F fill:#99ff99
