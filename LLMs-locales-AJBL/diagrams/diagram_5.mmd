@@ -1,0 +1,14 @@
+flowchart TD
+    A{Arquitecturas LLM Local} --> B[On-Premise]
+    A --> C[Nube Privada]
+    A --> D[Híbrida]
+    
+    B --> E[Servidores Propios]
+    C --> F[Cloud Dedicado]
+    D --> G[Datos Sensibles Local]
+    D --> H[Datos No Sensibles Nube]
+    
+    style A fill:#ccffff
+    style B fill:#ccffcc
+    style C fill:#ccffcc
+    style D fill:#ffffcc

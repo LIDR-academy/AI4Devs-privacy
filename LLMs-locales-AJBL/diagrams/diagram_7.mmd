@@ -1,0 +1,19 @@
+flowchart TB
+    A[Requisitos LLM Local] --> B[Hardware]
+    A --> C[Software]
+    A --> D[Red]
+    
+    B --> E[GPUs/TPUs]
+    B --> F[RAM: 16-128GB+]
+    B --> G[Almacenamiento: 100GB+]
+    
+    C --> H[SO Compatible]
+    C --> I[Contenedores]
+    
+    D --> J[Red Interna Rápida]
+    D --> K[Firewall Seguro]
+    
+    style A fill:#ccffff
+    style B fill:#ffffcc
+    style C fill:#ffffcc
+    style D fill:#ffffcc

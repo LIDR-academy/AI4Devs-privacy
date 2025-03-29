@@ -25,19 +25,7 @@ Los Modelos de Lenguaje de Gran Escala (LLMs, por sus siglas en inglés) han rev
 - **Privacidad de datos**: Protección de la información sensible contra acceso no autorizado, uso indebido o filtración.
 - **Datos empresariales sensibles**: Información confidencial como secretos comerciales, datos de clientes, propiedad intelectual e información financiera.
 
-```mermaid
-flowchart TB
-    A[Empresa] -->|Envía datos| B{¿Dónde procesar?}
-    B -->|Opción 1| C[Servicio en la Nube]
-    B -->|Opción 2| D[LLM Local]
-    C -->|Riesgo| E[Datos expuestos fuera]
-    D -->|Seguridad| F[Datos permanecen dentro]
-    
-    style C fill:#ffcccc
-    style D fill:#ccffcc
-    style E fill:#ff9999
-    style F fill:#99ff99
-```
+![Diagrama 1](diagrams/diagram_1.png)
 
 ## ¿Qué son los LLMs locales?
 
@@ -48,26 +36,7 @@ Los LLMs locales son modelos de lenguaje que se implementan y ejecutan dentro de
 - **Infraestructura privada**: Redes, servidores y sistemas controlados exclusivamente por la organización.
 - **Procesamiento local**: Análisis y generación de texto sin salir del perímetro de seguridad de la empresa.
 
-```mermaid
-flowchart LR
-    A[LLM en la Nube] -->|Datos viajan fuera| B[(Internet)]
-    C[LLM Local] -->|Datos se quedan| D[(Red interna)]
-    
-    style A fill:#ffcccc
-    style B fill:#ffcccc
-    style C fill:#ccffcc
-    style D fill:#ccffcc
-    
-    subgraph "Empresa"
-        D
-        C
-    end
-    
-    subgraph "Fuera de la Empresa"
-        B
-        A
-    end
-```
+![Diagrama 2](diagrams/diagram_2.png)
 
 ## Beneficios de implementar LLMs locales en empresas
 
@@ -79,21 +48,7 @@ La implementación de LLMs locales ofrece múltiples ventajas para las organizac
 - **Cumplimiento normativo**: Facilita el cumplimiento de regulaciones como GDPR, HIPAA o CCPA.
 - **Independencia operativa**: Funcionamiento sin depender de la disponibilidad de servicios externos.
 
-```mermaid
-flowchart TD
-    A[LLMs Locales] --> B[Control Total]
-    A --> C[Confidencialidad]
-    A --> D[Cumplimiento Legal]
-    A --> E[Independencia]
-    A --> F[Personalización]
-    
-    style A fill:#ccffcc
-    style B fill:#ccffff
-    style C fill:#ccffff
-    style D fill:#ccffff
-    style E fill:#ccffff
-    style F fill:#ccffff
-```
+![Diagrama 3](diagrams/diagram_3.png)
 
 ## Principales riesgos de privacidad en el uso de LLMs en la nube
 
@@ -105,22 +60,7 @@ Entender los riesgos que implica utilizar LLMs basados en la nube es fundamental
 - **Transferencia internacional de datos**: Datos que cruzan fronteras con diferentes marcos legales.
 - **Falta de transparencia**: Desconocimiento sobre quién tiene acceso a los datos enviados.
 
-```mermaid
-flowchart TB
-    A[Empresa] -->|Envía pregunta con datos sensibles| B[LLM en la Nube]
-    B --> C{Riesgos}
-    C -->|1| D[Proveedor ve datos]
-    C -->|2| E[Datos almacenados]
-    C -->|3| F[Uso para entrenar]
-    C -->|4| G[Acceso por terceros]
-    
-    style B fill:#ffcccc
-    style C fill:#ffcccc
-    style D fill:#ff9999
-    style E fill:#ff9999
-    style F fill:#ff9999
-    style G fill:#ff9999
-```
+![Diagrama 4](diagrams/diagram_4.png)
 
 ## Arquitecturas para desplegar LLMs locales
 
@@ -132,22 +72,7 @@ Existen diferentes configuraciones para implementar LLMs dentro del perímetro d
 - **Arquitectura híbrida**: Combinación de procesamiento local para datos sensibles y servicios en nube para datos no críticos.
 - **Contenedores y virtualización**: Tecnologías que facilitan el despliegue y aislamiento de LLMs.
 
-```mermaid
-flowchart TD
-    A{Arquitecturas LLM Local} --> B[On-Premise]
-    A --> C[Nube Privada]
-    A --> D[Híbrida]
-    
-    B --> E[Servidores Propios]
-    C --> F[Cloud Dedicado]
-    D --> G[Datos Sensibles Local]
-    D --> H[Datos No Sensibles Nube]
-    
-    style A fill:#ccffff
-    style B fill:#ccffcc
-    style C fill:#ccffcc
-    style D fill:#ffffcc
-```
+![Diagrama 5](diagrams/diagram_5.png)
 
 ## Modelos populares de LLMs que se pueden implementar localmente
 
@@ -159,22 +84,7 @@ Existen diversos modelos que pueden funcionar dentro de la infraestructura empre
 - **Modelos comerciales con licencia on-premise**: Soluciones empresariales para despliegue local.
 - **Fine-tuning**: Adaptación de modelos pre-entrenados a necesidades específicas de la empresa.
 
-```mermaid
-flowchart LR
-    A{LLMs Locales} --> B[Open Source]
-    A --> C[Comerciales]
-    
-    B --> D[Llama 3]
-    B --> E[Mistral]
-    B --> F[Falcon]
-    
-    C --> G[Azure OpenAI Local]
-    C --> H[IBM Watson Local]
-    
-    style A fill:#ccffff
-    style B fill:#ccffcc
-    style C fill:#ffffcc
-```
+![Diagrama 6](diagrams/diagram_6.png)
 
 ## Requisitos técnicos para la implementación
 
@@ -186,27 +96,7 @@ La instalación de LLMs locales requiere una infraestructura adecuada para su fu
 - **Ancho de banda interno**: Recursos de red para la comunicación con el modelo.
 - **Sistemas de respaldo**: Redundancia para garantizar disponibilidad.
 
-```mermaid
-flowchart TB
-    A[Requisitos LLM Local] --> B[Hardware]
-    A --> C[Software]
-    A --> D[Red]
-    
-    B --> E[GPUs/TPUs]
-    B --> F[RAM: 16-128GB+]
-    B --> G[Almacenamiento: 100GB+]
-    
-    C --> H[SO Compatible]
-    C --> I[Contenedores]
-    
-    D --> J[Red Interna Rápida]
-    D --> K[Firewall Seguro]
-    
-    style A fill:#ccffff
-    style B fill:#ffffcc
-    style C fill:#ffffcc
-    style D fill:#ffffcc
-```
+![Diagrama 7](diagrams/diagram_7.png)
 
 ## Mejores prácticas de seguridad para LLMs locales
 
@@ -218,26 +108,7 @@ Aunque los LLMs locales ofrecen mayor privacidad, requieren medidas específicas
 - **Auditoría de consultas**: Registro y monitoreo de todas las interacciones.
 - **Sanitización de entrada/salida**: Filtrado de datos sensibles en las consultas y respuestas.
 
-```mermaid
-flowchart TD
-    A[Seguridad LLM Local] --> B[Antes]
-    A --> C[Durante]
-    A --> D[Después]
-    
-    B --> E[Verificar usuarios]
-    B --> F[Filtrar datos sensibles]
-    
-    C --> G[Monitorear uso]
-    C --> H[Limitar recursos]
-    
-    D --> I[Auditar logs]
-    D --> J[No guardar consultas]
-    
-    style A fill:#ccffff
-    style B fill:#ccffcc
-    style C fill:#ccffcc
-    style D fill:#ccffcc
-```
+![Diagrama 8](diagrams/diagram_8.png)
 
 ## Casos de uso empresariales
 
@@ -249,26 +120,7 @@ Los LLMs locales pueden aplicarse a numerosas necesidades empresariales que invo
 - **Investigación y desarrollo**: Asistencia en la creación de nuevos productos o servicios.
 - **Procesamiento de datos regulados**: Análisis de información médica, financiera o personal protegida.
 
-```mermaid
-flowchart LR
-    A[Empresa] --> B[LLM Local]
-    
-    B --> C[Legal]
-    B --> D[RRHH]
-    B --> E[I+D]
-    B --> F[Finanzas]
-    
-    C --> G[Análisis contratos]
-    D --> H[FAQ empleados]
-    E --> I[Asistente desarrollo]
-    F --> J[Análisis financiero]
-    
-    style B fill:#ccffcc
-    style C fill:#ccffff
-    style D fill:#ccffff
-    style E fill:#ccffff
-    style F fill:#ccffff
-```
+![Diagrama 9](diagrams/diagram_9.png)
 
 ## Consideraciones legales y cumplimiento normativo
 
@@ -280,27 +132,7 @@ El uso de LLMs locales debe alinearse con el marco regulatorio aplicable a la em
 - **Requisitos de residencia de datos**: Obligación de mantener ciertos datos dentro de fronteras nacionales.
 - **Políticas de retención**: Gestión del almacenamiento y eliminación de datos.
 
-```mermaid
-flowchart TB
-    A[LLM Local] -->|Ayuda a cumplir| B{Regulaciones}
-    
-    B --> C[GDPR]
-    B --> D[HIPAA]
-    B --> E[CCPA]
-    B --> F[PCI-DSS]
-    
-    C --> G[Datos en Europa]
-    D --> H[Datos médicos]
-    E --> I[Datos California]
-    F --> J[Datos pagos]
-    
-    style A fill:#ccffcc
-    style B fill:#ccffff
-    style C fill:#ffffcc
-    style D fill:#ffffcc
-    style E fill:#ffffcc
-    style F fill:#ffffcc
-```
+![Diagrama 10](diagrams/diagram_10.png)
 
 ## Análisis costo-beneficio
 
@@ -312,25 +144,7 @@ La implementación de LLMs locales implica un balance entre inversión inicial y
 - **Ahorro en suscripciones**: Eliminación o reducción de pagos a proveedores de LLMs en la nube.
 - **Valor de la privacidad**: Beneficios intangibles como la protección de propiedad intelectual y confianza.
 
-```mermaid
-flowchart LR
-    A{Análisis} --> B[Costos]
-    A --> C[Beneficios]
-    
-    B --> D[Hardware inicial]
-    B --> E[Mantenimiento]
-    B --> F[Energía]
-    B --> G[Personal técnico]
-    
-    C --> H[Privacidad]
-    C --> I[Control]
-    C --> J[Ahorro a largo plazo]
-    C --> K[Cumplimiento legal]
-    
-    style A fill:#ccffff
-    style B fill:#ffcccc
-    style C fill:#ccffcc
-```
+![Diagrama 11](diagrams/diagram_11.png)
 
 ## Pasos para la implementación segura
 
@@ -343,25 +157,7 @@ Una hoja de ruta para desplegar LLMs locales de forma efectiva y segura.
 - **Despliegue por fases**: Implementación gradual empezando por áreas menos sensibles.
 - **Monitoreo continuo**: Vigilancia permanente del rendimiento y la seguridad.
 
-```mermaid
-flowchart LR
-    A[Inicio] --> B[Evaluar necesidades]
-    B --> C[Seleccionar modelo]
-    C --> D[Preparar infraestructura]
-    D --> E[Prueba piloto]
-    E --> F[Despliegue completo]
-    F --> G[Monitoreo]
-    G --> H[Mejora continua]
-    
-    style A fill:#ccffff
-    style B fill:#ffffcc
-    style C fill:#ffffcc
-    style D fill:#ffffcc
-    style E fill:#ccffcc
-    style F fill:#ccffcc
-    style G fill:#ccffcc
-    style H fill:#ccffcc
-```
+![Diagrama 12](diagrams/diagram_12.png)
 
 ## Futuro de los LLMs locales y la privacidad empresarial
 
@@ -373,24 +169,7 @@ Tendencias emergentes y desarrollos futuros en el campo de los LLMs locales.
 - **Federación de modelos**: Colaboración entre empresas para entrenar modelos sin compartir datos sensibles.
 - **Regulaciones emergentes**: Nuevos marcos legales específicos para IA y privacidad.
 
-```mermaid
-flowchart TD
-    A[Futuro LLMs Locales] --> B[Modelos más pequeños]
-    A --> C[Soluciones híbridas]
-    A --> D[Federación]
-    A --> E[Nuevas regulaciones]
-    
-    B --> F[Menos recursos]
-    C --> G[Lo mejor de ambos mundos]
-    D --> H[Entrenar sin compartir datos]
-    E --> I[Cumplimiento más estricto]
-    
-    style A fill:#ccffff
-    style B fill:#ccffcc
-    style C fill:#ccffcc
-    style D fill:#ccffcc
-    style E fill:#ffffcc
-```
+![Diagrama 13](diagrams/diagram_13.png)
 
 ## Conclusiones
 
@@ -402,21 +181,4 @@ Los LLMs locales representan una solución efectiva para las empresas que necesi
 - **Evolución constante**: El campo de los LLMs locales continúa desarrollándose con mejoras continuas.
 - **Enfoque personalizado**: Cada empresa debe evaluar sus necesidades específicas para determinar la mejor estrategia de implementación.
 
-```mermaid
-flowchart TB
-    A[LLMs en Empresas] -->|Opción 1| B[LLMs en la Nube]
-    A -->|Opción 2| C[LLMs Locales]
-    A -->|Opción 3| D[Solución Híbrida]
-    
-    B --> E[Fácil, pero menos privado]
-    C --> F[Más privado, más recursos]
-    D --> G[Balance según datos]
-    
-    style A fill:#ccffff
-    style B fill:#ffcccc
-    style C fill:#ccffcc
-    style D fill:#ffffcc
-    style E fill:#ffcccc
-    style F fill:#ccffcc
-    style G fill:#ffffcc
-```
+![Diagrama 14](diagrams/diagram_14.png)
