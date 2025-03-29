@@ -67,3 +67,4 @@ Este fichero será colaborativo.
 - [LLMs Locales 2](llms-locales-DFO/README.md)
 - [LLMs Locales 3](LLMs-LOCALES-TMS/LLMs-LOCALES/README.md)
 - [Privacidad y Seguridad Proyectos](privacidad-seguridad-proyectos-tech/privacidad-seguridad-proyectos-tech.md)
+- [Aprendizaje federado](aprendizaje-federado/README.md)
