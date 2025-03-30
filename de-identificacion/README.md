@@ -8,3 +8,4 @@ Esto se logra eliminando nombres, direcciones u otros datos sensibles que puedan
 
 ![Ejemplo De-identificacion](https://github.com/LIDR-academy/AI4Devs-privacy/blob/main/privacy-ai-course/de-identificacion/res/01_deidentification.jpg?raw=true)
 
+[Enlace al documento de-identifcacion-LBN.md](de-identificacion-LBN.md)
