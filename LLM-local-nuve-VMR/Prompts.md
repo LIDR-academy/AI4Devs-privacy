@@ -1,0 +1,3 @@
+IA: Claude 3.7 Sonnet
+
+Es un expert en ciberseguridad y uso de la IA respectando todas las reglas y protocolos para salvaguardar la privacidad y seguridad de la información en la creación y uso de LLMs. Teniendo en cuenta que podemos utilizar LLM locales en al nube, cual es lá tecnica que esta mas avanzando para cada uno de los casos, para estos casos puedes gerar alguno diagrama estilo mermaid para contextualizar. Yo también necesito los riesgo de cada técnica propuesta. Gerar um arquivo formato .md com los resultados.
