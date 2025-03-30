@@ -1102,3 +1102,43 @@ Google Colab es una plataforma gratuita en la nube que permite ejecutar código 
 En esta sección, hemos recopilado una serie de recursos adicionales que te permitirán profundizar en los temas tratados a lo largo del curso. Los libros, artículos académicos y herramientas en línea que te hemos proporcionado son excelentes puntos de partida para continuar tu aprendizaje y aplicar los conocimientos adquiridos en proyectos reales.
 
 No dudes en explorar estos recursos y seguir expandiendo tus habilidades en inteligencia artificial, datos sintéticos y modelos de lenguaje. ¡El aprendizaje no termina aquí!
+
+### **Entrenamiento del Modelo Generador**
+
+- **Ejemplo en Python (usando CTGAN):**
+
+```python
+from ctgan import CTGANSynthesizer
+from sdv.datasets.demo import load_demo
+
+data, metadata = load_demo(modality='single_table')
+ctgan = CTGANSynthesizer(epochs=100)
+ctgan.fit(data)
+synthetic_data = ctgan.sample(1000)
+print(synthetic_data.head())
+```
+
+### **Implementación en el Entrenamiento de LLMs**
+- **Ejemplo en Python (Fine-tuning de GPT con datos sintéticos):**
+
+```python
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+synthetic_text = "El paciente mostró una mejoría significativa tras el tratamiento."
+inputs = tokenizer(synthetic_text, return_tensors="pt")
+outputs = model(**inputs)
+```
+## 6️⃣ Diagrama de Operaciones en Mermaid
+
+```mermaid
+graph TD;
+    A[Inicio] --> B[Evaluación de Datos Sensibles]
+    B --> C[Selección de Técnica de Generación]
+    C --> D[Entrenamiento del Modelo Generador]
+    D --> E[Generación de Datos Sintéticos]
+    E --> F[Validación y Evaluación de Privacidad]
+    F --> G[Implementación en Entrenamiento de LLMs]
+    G --> H[Monitoreo y Mantenimiento]
+    H -->|Reentrenamiento| D
+```
