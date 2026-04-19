@@ -67,3 +67,4 @@ Este fichero será colaborativo.
 - [LLMs Locales 2](llms-locales-DFO/README.md)
 - [LLMs Locales 3](LLMs-LOCALES-TMS/LLMs-LOCALES/README.md)
 - [Privacidad y Seguridad Proyectos](privacidad-seguridad-proyectos-tech/privacidad-seguridad-proyectos-tech.md)
+- [RAG — Debilidades en vectores y embeddings](<RAG - Debilidades en vectores & embeddings/Debilidades en vectores (RAG) + mitigacion.md>)
