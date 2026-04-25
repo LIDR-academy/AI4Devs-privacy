@@ -62,6 +62,7 @@ Este fichero será colaborativo.
 - [Red-Teaming y Simulación de Ataques](red-teaming/README.md)  
 - [Jailbreaking](jailbreaking/README.md)  
 - [Derechos de Autor](AI4Devs-Copyrights-&-Derechos-de-autor-MADV/README.md)
+- [AI and FedRAMP](AI-FedRAMP/README.md)
 - [Generación de Datos Sintéticos](generacion_de_datos_sinteticos/README.md)
 - [LLMs Locales](LLMs-locales/res/README.md)
 - [LLMs Locales 2](llms-locales-DFO/README.md)
